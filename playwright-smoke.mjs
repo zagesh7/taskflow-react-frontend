@@ -91,7 +91,7 @@ try {
   await page.getByLabel('Assignee (required)').selectOption('2')
   await page.getByLabel('Due date (required)').fill('2026-11-10')
   await page.getByRole('button', { name: 'Create task' }).click()
-  await page.getByText('Prepare launch notes').waitFor()
+  await page.getByText('Review landing page copy').waitFor()
 
   await page.getByRole('button', { name: /^Projects/ }).click()
   await page.locator('.project-card').filter({ hasText: 'Playwright smoke workspace' }).click()
@@ -107,6 +107,8 @@ try {
   await page.getByLabel('Password').fill('Member123!')
   await page.getByRole('button', { name: 'Sign in' }).click()
   await page.getByText('Morgan Member').waitFor()
+  await page.getByRole('heading', { name: 'Website refresh' }).waitFor()
+  await page.getByText('Prepare launch notes').waitFor()
   await page.getByRole('button', { name: /^Projects/ }).click()
   await page.locator('.project-card').filter({ hasText: 'Playwright smoke workspace' }).click()
   await page.getByText('Prepare launch notes').waitFor()
