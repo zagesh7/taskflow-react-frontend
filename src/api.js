@@ -1,4 +1,9 @@
-const API = globalThis.TASKFLOW_CONFIG?.apiUrl || import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
+const configuredApi = globalThis.TASKFLOW_CONFIG?.apiUrl || import.meta.env.VITE_API_URL
+const API = import.meta.env.DEV
+  ? configuredApi || 'http://localhost:8000/api'
+  : configuredApi && !/^https?:\/\/(localhost|127\.0\.0\.1)(:|\/|$)/i.test(configuredApi)
+    ? configuredApi
+    : 'https://taskflow-laravel-api.wasmer.app/api'
 
 export async function api(path, options = {}) {
   const token = localStorage.getItem('taskflow_token')
