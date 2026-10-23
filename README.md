@@ -30,6 +30,19 @@ For a production build, run `npm run build`; Vite writes static assets to `dist/
 
 The app first reads `globalThis.TASKFLOW_CONFIG?.apiUrl` from `public/config.js`, then falls back to `VITE_API_URL`. For deployment, set the API base URL to the deployed Laravel URL ending in `/api`, and configure the Laravel API's CORS `FRONTEND_URL` to the deployed frontend origin. Keep credentials and tokens out of frontend source files.
 
+## Demo credentials
+
+| Role | Email | Password |
+| --- | --- | --- |
+| Admin | `admin@taskflow.local` | `Admin123!` |
+| Member | `member@taskflow.local` | `Member123!` |
+
+Admins can create projects and tasks. Members see projects and tasks assigned to them and can update their assigned task status.
+
+## Tests
+
+Run `npm run build` for the production bundle. For the Playwright UI flow, start the Vite server with `npm run dev` in one terminal, install a Playwright browser with `npx playwright install chromium`, then run `npm run test:ui` in another terminal. The UI flow uses stubbed API responses and covers both roles, project/task creation, project navigation, status updates, and member task visibility. If using an installed Chrome instead of the Playwright browser, set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to its executable path.
+
 ## Wasmer deployment
 
 `app.yaml`, `wasmer.toml`, and `Staticfile` configure this static-site deployment. `public/config.js` points to the live Laravel API. When deploying elsewhere, update that public URL and make sure the Vite build can read `VITE_API_URL` if using the environment variable fallback. Laravel CORS must allow the frontend origin.
