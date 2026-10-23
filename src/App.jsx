@@ -61,7 +61,7 @@ function App() {
   const visiblePeople = useMemo(() => people.filter(person => [person.name, person.email, person.role].some(value => value?.toLowerCase().includes(query.toLowerCase()))), [people, query])
   const tasks = project?.tasks || []
   const counts = { total: tasks.length, active: tasks.filter(t => t.status === 'IN_PROGRESS').length, done: tasks.filter(t => t.status === 'DONE').length, overdue: tasks.filter(t => t.status === 'OVERDUE').length }
-  async function signOut() { try { await api('/logout', { method: 'POST' }) } catch {} localStorage.removeItem('taskflow_token'); setUser(null); setProjects([]); setProject(null); setPeople([]); setActiveView('project'); setQuery(''); setError(''); setToast('') }
+  async function signOut() { try { await api('/logout', { method: 'POST' }) } catch {} localStorage.removeItem('taskflow_token'); setUser(null); setProjects([]); setSelectedId(null); setProject(null); setProjectLoading(false); setPeople([]); setActiveView('project'); setQuery(''); setError(''); setToast('') }
   async function openPeople() { setActiveView('people'); setError(''); setPeopleLoading(true); try { setPeople(await api('/users')) } catch (err) { setError(err.message) } finally { setPeopleLoading(false) } }
   function openProject(id) {
     setActiveView('project')
