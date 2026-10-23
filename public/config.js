@@ -1,4 +1,4 @@
-// Set apiUrl to the deployed Laravel base URL, including /api, before deploying.
+// Public API base URL; do not put credentials or tokens in this file.
 globalThis.TASKFLOW_CONFIG = {
-  apiUrl: '',
+  apiUrl: 'https://taskflow-laravel-api.wasmer.app/api',
 }

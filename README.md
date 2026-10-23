@@ -2,7 +2,7 @@
 
 The web client for TaskFlow: a focused workspace for signing in and managing projects, teammates, and tasks through the Laravel API.
 
-> **Live website:** _URL to be added after deployment._
+> **Live website:** https://taskflow-react-frontend.wasmer.app
 
 ## Features
 
@@ -32,7 +32,7 @@ The app first reads `globalThis.TASKFLOW_CONFIG?.apiUrl` from `public/config.js`
 
 ## Wasmer deployment
 
-`app.yaml`, `wasmer.toml`, and `Staticfile` configure this static-site deployment. Connect this GitHub repository to Wasmer, use the Vite production build output in `dist/`, and configure the runtime API URL in `public/config.js` after the Laravel API has a stable URL. Confirm the deployed frontend can reach the API over HTTPS and that Laravel CORS allows the frontend origin.
+`app.yaml`, `wasmer.toml`, and `Staticfile` configure this static-site deployment. `public/config.js` points to the live Laravel API. When deploying elsewhere, update that public URL and make sure the Vite build can read `VITE_API_URL` if using the environment variable fallback. Laravel CORS must allow the frontend origin.
 
 ## Related repositories
 
