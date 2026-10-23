@@ -32,9 +32,10 @@ The app first reads `globalThis.TASKFLOW_CONFIG?.apiUrl` from `public/config.js`
 
 ## Wasmer deployment
 
-`app.yaml.example`, `wasmer.toml`, and `Staticfile` provide a static-site deployment starting point. Connect this GitHub repository to Wasmer, use the Vite production build output in `dist/`, and configure the runtime API URL in `public/config.js` after the Laravel API has a stable URL. Confirm the deployed frontend can reach the API over HTTPS and that Laravel CORS allows the frontend origin.
+`app.yaml`, `wasmer.toml`, and `Staticfile` configure this static-site deployment. Connect this GitHub repository to Wasmer, use the Vite production build output in `dist/`, and configure the runtime API URL in `public/config.js` after the Laravel API has a stable URL. Confirm the deployed frontend can reach the API over HTTPS and that Laravel CORS allows the frontend origin.
 
 ## Related repositories
 
 - [TaskFlow Laravel API](https://github.com/zagesh7/taskflow-laravel-api)
 - [TaskFlow Django overdue service](https://github.com/zagesh7/taskflow-django-overdue)
+
