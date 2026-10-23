@@ -1,0 +1,10 @@
+[package]
+name = "replace-with-your-wasmer-username/taskflow-react-frontend"
+version = "0.1.0"
+description = "TaskFlow React frontend"
+
+[dependencies]
+"wasmer/static-web-server" = "1"
+
+[fs]
+public = "dist"

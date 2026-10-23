@@ -1,0 +1,4 @@
+kind: wasmer.io/App.v0
+owner: replace-with-your-wasmer-username
+name: taskflow-react-frontend
+package: .
